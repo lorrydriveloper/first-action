@@ -11,7 +11,11 @@ async function main() {
 
     const MyOctokit = Octokit.plugin(paginateRest)
     const octokit = new MyOctokit({ auth: 'token ' + token })
-
+    core.info(owner)
+    core.info(repo)
+    core.info(pull_number)
+    const url = `/repos/${owner}/${repo}/pulls/${pull_number}`
+    core.info(url)
     const result = await octokit.paginate('GET /repos/{owner}/{repo}/pulls/{pull_number}', {
       owner: owner,
       repo: repo,
