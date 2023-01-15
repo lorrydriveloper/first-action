@@ -11,18 +11,15 @@ async function main() {
 
     const MyOctokit = Octokit.plugin(paginateRest)
     const octokit = new MyOctokit({ auth: 'token ' + token })
-    core.info(owner)
-    core.info(repo)
-    core.info(pull_number)
-    const url = `/repos/${owner}/${repo}/pulls/${pull_number}`
-    core.info(url)
     const result = await octokit.paginate('GET /repos/{owner}/{repo}/pulls/{pull_number}', {
       owner: owner,
       repo: repo,
       pull_number: pull_number,
       per_page: 100,
     })
-    core.info(JSON.stringify(result))
+    core.setOutput('mergeable_state', result[0].mergable_state)
+    core.info(result[0].mergable_state)
+    core.info(result)
   } catch (error) {
     core.setFailed(error.message)
   }
