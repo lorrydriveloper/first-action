@@ -20,6 +20,7 @@ async function main() {
     })
 
     core.info(JSON.stringify(result[0]))
+    core.inf0(core.summary)
     core.setOutput('mergeableState', result[0].mergeable_state)
     core.info(result[0].mergeable_state)
   } catch (error) {
