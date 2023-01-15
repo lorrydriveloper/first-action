@@ -17,9 +17,9 @@ async function main() {
     const url = `/repos/${owner}/${repo}/pulls/${pull_number}`
     core.info(url)
     const result = await octokit.paginate('GET /repos/{owner}/{repo}/pulls/{pull_number}', {
-      owner: owner,
-      repo: repo,
-      pull_number: pull_number,
+      owner: 'cogitorteam',
+      repo: 'helm',
+      pull_number: '79',
       per_page: 100,
     })
     core.info(JSON.stringify(result))
