@@ -17,10 +17,10 @@ async function main() {
       pull_number: pull_number,
       per_page: 100,
     })
-    core.setOutput('mergeableState', result[0].mergable_state)
-    core.info(result[0].mergable_state)
-    core.info(result)
-    core.info(context)
+
+    core.info(JSON.stringify(result[0]))
+    core.setOutput('mergeableState', result[0].mergeable_state)
+    core.info(result[0].mergeable_state)
   } catch (error) {
     core.setFailed(error.message)
   }
