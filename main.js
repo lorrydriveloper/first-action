@@ -19,8 +19,6 @@ async function main() {
       per_page: 100,
     })
 
-    core.info(JSON.stringify(result[0], null, 2))
-    core.info(JSON.stringify(core.summary, null, 2))
     core.setOutput('mergeableState', result[0].mergeable_state)
     core.info(result[0].mergeable_state)
   } catch (error) {
