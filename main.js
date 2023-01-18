@@ -21,7 +21,7 @@ async function main() {
 
     core.setOutput('mergeableState', result[0].mergeable_state)
     core.info(result[0].mergeable_state)
-    ore.info(JSON.stringify(result, null, 2))
+    core.info(JSON.stringify(result, null, 2))
   } catch (error) {
     core.setFailed(error.message)
   }
