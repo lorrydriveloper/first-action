@@ -13,7 +13,7 @@ async function main() {
     const octokit = new MyOctokit({ auth: 'token ' + token })
 
     const required_users = ['lorrydriveloper', 'simonpjones', 'madwire']
-    const reviews = await octokit.pulls.listReviews({
+    const reviews = await octokit.rest.pulls.listReviews({
       owner,
       repo,
       pull_number,
