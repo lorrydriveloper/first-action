@@ -4,6 +4,7 @@ const { paginateRest } = require('@octokit/plugin-paginate-rest')
 
 async function main() {
   try {
+    console.log('hello')
     const owner = core.getInput('owner')
     const repo = core.getInput('repo')
     const token = core.getInput('github-token', { required: true })
