@@ -8,10 +8,15 @@ async function main() {
     const repo = core.getInput('repo')
     const token = core.getInput('github-token', { required: true })
     const pull_number = core.getInput('pull_number')
-
+    core.info(core.info(JSON.stringify(Octokit, null, 2)))
     const MyOctokit = Octokit.plugin(paginateRest)
+    core.info(core.info(JSON.stringify(MyOctokit, null, 2)))
+
     const octokit = new MyOctokit({ auth: 'token ' + token })
     core.info(token)
+    core.info(owner)
+    core.info(reportError)
+    core.info(pull_number)
     core.info(core.info(JSON.stringify(octokit, null, 2)))
     core.info(core.info(JSON.stringify(octokit.rest, null, 2)))
     const required_users = ['lorrydriveloper', 'simonpjones', 'madwire']
