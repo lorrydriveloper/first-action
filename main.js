@@ -12,7 +12,8 @@ async function main() {
     const MyOctokit = Octokit.plugin(paginateRest)
     const octokit = new MyOctokit({ auth: 'token ' + token })
     core.info(token)
-    core.info(octokit)
+    core.info(core.info(JSON.stringify(octokit, null, 2)))
+    core.info(core.info(JSON.stringify(octokit.rest, null, 2)))
     const required_users = ['lorrydriveloper', 'simonpjones', 'madwire']
     const reviews = await octokit.rest.pulls.listReviews({
       owner,
